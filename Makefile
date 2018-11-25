@@ -37,9 +37,9 @@ BUILD    := build
 SOURCES  := source
 INCLUDES := include
 DATA     := data
-GRAPHICS :=
-AUDIO    :=
-ICON     :=
+GRAPHICS := graphics
+AUDIO    := 
+ICON     := 
 
 # specify a directory which contains the nitro filesystem
 # this is relative to the Makefile

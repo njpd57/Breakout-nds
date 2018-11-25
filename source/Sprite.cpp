@@ -38,7 +38,8 @@ void sprite::loadGfx(bool onMain,int size)
 			for(int i=0; i < size * size /2;i++)
 			{
 				gfx[i]=1| (1<<8);
-			}
+			};
+			dmaCopyHalfWords(0,spriteTiles,gfx,TileSize);
 			break;
 
 		case false:
@@ -47,9 +48,62 @@ void sprite::loadGfx(bool onMain,int size)
 			for(int i=0; i < size * size /2;i++)
 			{
 				gfx[i]=1| (1<<8);
-			}
+			};
+			dmaCopyHalfWords(0,spriteTiles,gfx,TileSize);
 			break;
 	}
+};
+
+void sprite::setPalette(const void* palete,uint32 palsize)
+{
+	spritePal=palete;
+	PalSize=palsize;
+
+    switch(paletteNum)
+        {
+        case 0:
+            dmaCopy(spritePal,SPRITE_PALETTE,PalSize);
+            break;
+        case 1:
+            dmaCopy(spritePal,SPRITE_PALETTE+16,PalSize);
+            break;
+        case 2:
+            dmaCopy(spritePal,SPRITE_PALETTE+32,PalSize);
+            break;
+        case 3:
+            dmaCopy(spritePal,SPRITE_PALETTE+48,PalSize);
+            break;
+        case 4:
+            dmaCopy(spritePal,SPRITE_PALETTE+64,PalSize);
+            break;
+        case 5:
+            dmaCopy(spritePal,SPRITE_PALETTE+80,PalSize);
+            break;
+        case 6:
+            dmaCopy(spritePal,SPRITE_PALETTE+96,PalSize);
+            break;
+        case 7:
+            dmaCopy(spritePal,SPRITE_PALETTE+112,PalSize);
+            break;
+        case 8:
+            dmaCopy(spritePal,SPRITE_PALETTE+128,PalSize);
+            break;
+        case 9:
+            dmaCopy(spritePal,SPRITE_PALETTE+144,PalSize);
+            break;
+        case 10:
+            dmaCopy(spritePal,SPRITE_PALETTE+160,PalSize);
+            break;
+        case 11:
+            dmaCopy(spritePal,SPRITE_PALETTE+176,PalSize);
+            break;
+        case 12:
+            dmaCopy(spritePal,SPRITE_PALETTE+192,PalSize);
+            break;
+        case 13:
+            dmaCopy(spritePal,SPRITE_PALETTE+208,PalSize);
+
+	};
 };
 
 void sprite::Update()

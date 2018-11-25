@@ -6,4 +6,5 @@ void LoadVideo();
 void LoadOam();
 void LoadBg();
 void LoadMap();
+void SystemLoop();
 #endif

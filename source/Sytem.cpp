@@ -59,3 +59,11 @@ void LoadMap(
     }
 }
 
+void SystemLoop()
+{
+	oamUpdate(&oamMain);
+	oamUpdate(&oamSub);
+	bgUpdate();
+	scanKeys();
+	swiWaitForVBlank();
+}
